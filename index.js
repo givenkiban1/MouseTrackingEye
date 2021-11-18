@@ -6,7 +6,7 @@ function resetPosition(event){
     document.getElementById("eye").style.marginTop = "150" + "px";
 }
 
-function detectPosition(event){
+function calculatePosition(clientX, clientY){
     // this function is called when the mousepad moves over the bg-image div
     // default margin from top/left = 8px
     // console.log(event.clientX + ", " + event.clientY);
@@ -21,9 +21,9 @@ function detectPosition(event){
     var y1 = y0 + 212;
 
     // obtain the x and y coordinates of the mouse
-    var mLeft = (event.clientX);
+    var mLeft = (clientX);
 
-    var mTop = (event.clientY);
+    var mTop = (clientY);
     
     // the code below checks that the mouse's coordinates
     // are within the boundary box
@@ -52,4 +52,22 @@ function detectPosition(event){
     document.getElementById("eye").style.marginTop = mTop-150 + "px";
 
 
+}
+
+var width = window.innerWidth, height = window.innerHeight;
+
+function trackMouse(event){
+    
+    var scaleX = width / document.getElementById("bg-img").clientWidth;
+    var scaleY = height / document.getElementById("bg-img").clientHeight;
+
+    calculatePosition(event.clientX * (1/scaleX), event.clientY * (1/scaleY));
+
+}
+
+
+function updateDimensions(event){
+    // console.log(window.innerHeight + " x " + window.innerWidth);
+    width = window.innerWidth;
+    height = window.innerHeight;
 }

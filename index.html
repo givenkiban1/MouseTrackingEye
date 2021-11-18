@@ -3,11 +3,9 @@
         <title>Eye tracking Mouse Demo</title>
         <link rel="stylesheet" type="text/css" href="index.css"/>
     </head>
-    <body>
-        <h1>Hellow World</h1>
-
+    <body onmousemove="trackMouse(event)" onresize="updateDimensions(event)">
         <div class="eye-parent">
-        <div class="bg-img" onmousemove="detectPosition(event)" onmouseleave="resetPosition(event)">
+        <div class="bg-img" id="bg-img" onmousemove="//detectPosition(event)" onmouseleave="//resetPosition(event)">
         
         </div>
 
