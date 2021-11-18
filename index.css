@@ -1,0 +1,41 @@
+body{
+    text-align: center;
+}
+
+
+/* 
+original img dimensions
+height: 637 px width: 530 px
+*/
+.eye-parent{
+    width: 530px;
+    height: 637px;
+    display: flex;
+}
+
+.bg-img{
+    width: 530px;
+    height: 637px;
+    display: block;
+    background-image: url('eye-no-white.png');
+    display: flex;
+    position: relative;
+    z-index: 0;
+}
+
+/* 
+original eye dimensions
+height: 212 px width: 248 px
+*/
+
+.eye{
+    margin-top: 150px;
+    margin-left: 140px;
+    width: 248px;
+    height: 212px;
+    display: block;
+    position: relative;
+    background-image: url('eye-iris.png');
+    z-index: -1;
+}
+
