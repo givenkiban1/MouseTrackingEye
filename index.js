@@ -71,21 +71,21 @@ function detectPosition(event){
         var mLeft = (event.clientX);
 
         var mTop = (event.clientY);
-
-        if (mLeft <147){
-            mLeft = 147;
+        
+        if (mLeft <157){
+            mLeft = 157;
         }
         else
-        if (mLeft > 374){
-            mLeft = 374;
+        if (mLeft > 360){
+            mLeft = 360;
         }
 
-        if (mTop < 186){
-            mTop = 186;
+        if (mTop < 196){
+            mTop = 196;
         }
         else
-        if (mTop > 436){
-            mTop = 436;
+        if (mTop > 420){
+            mTop = 420;
         }
 
         document.getElementById("eye").style.marginLeft = mLeft- 124 + "px";
