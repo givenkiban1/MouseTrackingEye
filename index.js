@@ -1,13 +1,14 @@
 function resetPosition(event){
+    // this function is called when the mouse leave's the eyeball region, stop tracking
+    // eyeball is re-centered
     // add animation
     document.getElementById("eye").style.marginLeft = "140" + "px";
     document.getElementById("eye").style.marginTop = "150" + "px";
 }
 
 function detectPosition(event){
+    // this function is called when the mousepad moves over the bg-image div
     // default margin from top/left = 8px
-    // console.log("mouse detected moving over me");
-    // console.log(event);
     // console.log(event.clientX + ", " + event.clientY);
 
     // center is : y0=150, x0= 
@@ -19,92 +20,36 @@ function detectPosition(event){
     var y0 = 150;
     var y1 = y0 + 212;
 
-    var diffX, diffY;
+    // obtain the x and y coordinates of the mouse
+    var mLeft = (event.clientX);
 
-    if (event.clientX<= x0){
-        diffX = x0 - event.clientX;
+    var mTop = (event.clientY);
+    
+    // the code below checks that the mouse's coordinates
+    // are within the boundary box
+    // if exceeding, the coordinate is set to the limit
+    if (mLeft <157){
+        mLeft = 157;
     }
     else
-    {
-        diffX = event.clientX - x1;
+    if (mLeft > 360){
+        mLeft = 360;
     }
 
-    if (event.clientY<= x0){
-        diffY = y0 - event.clientY;
+    if (mTop < 196){
+        mTop = 196;
     }
     else
-    {
-        diffY = event.clientY - y1;
+    if (mTop > 420){
+        mTop = 420;
     }
 
-    if (true)
-    // ((event.clientX <= x1 && event.clientX >= x0) && 
-    // (event.clientY <= y1 && event.clientY >= y0)){
-    //     console.log("you are within the center");
-    //     document.getElementById("eye").style.marginLeft = "140" + "px";
-    //     document.getElementById("eye").style.marginTop = "150" + "px";
+    // assigning the coordinates of the eye to follow
+    // offset is added to make sure that the eyeball is directly
+    // under the mouse.
+    document.getElementById("eye").style.marginLeft = mLeft- 124 + "px";
 
-    // }
-    // else 
-    // if (((diffX >= 248 && event.clientX>x1) || event.clientX<= x0) && 
-    // ((diffY >= 212 && event.clientY>y1) || event.clientY<= y0))
-    {
-        /*
-        event.target.
+    document.getElementById("eye").style.marginTop = mTop-150 + "px";
 
-        offsetHeight: 637
-​​
-        offsetLeft: 8
-        ​​
-        offsetParent: <body>
-        ​​
-        offsetTop: 67
-        ​​
-        offsetWidth: 530
-
-        */
-
-        // if (event.clientX <= (event.target.offsetWidth + event.target.marginLeft)){
-            
-        // }
-
-        var mLeft = (event.clientX);
-
-        var mTop = (event.clientY);
-        
-        if (mLeft <157){
-            mLeft = 157;
-        }
-        else
-        if (mLeft > 360){
-            mLeft = 360;
-        }
-
-        if (mTop < 196){
-            mTop = 196;
-        }
-        else
-        if (mTop > 420){
-            mTop = 420;
-        }
-
-        document.getElementById("eye").style.marginLeft = mLeft- 124 + "px";
-
-        document.getElementById("eye").style.marginTop = mTop-150 + "px";
-
-        // max x- 374
-        // min x- 147
-
-        // max y - 436
-        // min y - 186
-
-        // console.log(event.clientX + ", " + event.clientY);
-    }
-    // else
-    // {
-    //     console.log("can't display eye out of bounds");
-    //     document.getElementById("eye").style.marginLeft = "140" + "px";
-    //     document.getElementById("eye").style.marginTop = "150" + "px";
-    // }
 
 }
