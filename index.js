@@ -59,10 +59,9 @@ function calculatePosition(clientX, clientY){
     // assigning the coordinates of the eye to follow
     // offset is added to make sure that the eyeball is directly
     // under the mouse.
-    // console.log(
-    //     (mLeft- 124) + " , " +
-    //     (mTop-150)
-    // );
+
+
+    // angle calculations
 
     // right-edge: rotateY(-50deg)
     // left edge: rotateY(50deg)
@@ -75,20 +74,19 @@ function calculatePosition(clientX, clientY){
     var xyAngleRate = yAngleRange / xRange;
     var yyAngleRate = yAngleRange / yRange;
 
-    document.getElementById("eye").style.marginLeft = mLeft- 124 + "px";
-    // console.log(Math.ceil((mLeft- 124) * xyAngleRate)-70);
-    // console.log(Math.ceil((mTop- 150) * yyAngleRate)-54);
-    // console.log( angles[Math.ceil((mLeft- 124) * xyAngleRate)] );
     var angleIndex = Math.ceil((mLeft- 124) * xyAngleRate)-70;
-    // document.getElementById("eye").style.transform = "rotateY(" + angles[angleIndex] + "deg)";
-    
     var angleIndey = Math.ceil((mTop- 150) * yyAngleRate)-54;
-    // document.getElementById("eye").style.transform = "rotateX(" + angles[angleIndey] + "deg)";
+    
 
+    // end of angle calculations
+
+    // setting position of the eye
+    document.getElementById("eye").style.marginLeft = mLeft- 124 + "px";
     document.getElementById("eye").style.marginTop = mTop-150 + "px";
+    
+    // setting the angle of the eye wrt mouse coordinates
     document.getElementById("eye").style.transform = "rotateY(" + angles[angleIndex] + "deg) "
-    // ;
-     + 
+    + 
     "rotateX(" + (-angles[angleIndey]) + "deg)";
 
 }
